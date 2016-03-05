@@ -1,4 +1,6 @@
 {
+  "name": "cant-touch-this",
+  "author": "Juan Ignacio Casal",
   "private": true,
   "dependencies": {
     "phaser": "^2.4.4"

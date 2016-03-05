@@ -23,8 +23,14 @@ export default {
 
   // -- General game assets
   game: [{
-    key: 'phaser',
+    key: 'player',
     type: 'image'
+  },
+  {
+    key: 'enemy',
+    type: 'image'
+  }
+
   // }, {
   //   // Example: Add background music.
   //   key: 'tune',
@@ -36,5 +42,5 @@ export default {
   //   type: 'audiosprite',
   //   urls: [ 'sfx.m4a' ],
   //   jsonURL: 'sfx.json'
-  }]
+  ]
 };
