@@ -16,18 +16,24 @@ export default {
   boot: [{
     key: 'splash-screen',
     type: 'image'
-  }, {
+  },
+  {
     key: 'progress-bar',
     type: 'image'
   }],
 
   // -- General game assets
-  game: [{
+  game: [
+  {
     key: 'player',
     type: 'image'
   },
   {
     key: 'enemy',
+    type: 'image'
+  },
+  {
+    key: 'backgrounds/background-10',
     type: 'image'
   }
 

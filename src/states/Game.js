@@ -10,15 +10,27 @@ import Enemy from '../objects/Enemy';
 
 export default class Game extends Phaser.State {
 
+  preload () {
+    this.background = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'backgrounds/background-10');
+    this.background.anchor.setTo(0.5, 0.5);
+
+
+
+  }
   create () {
 
     const { centerX: x, centerY: y } = this.world;
+
+
+
     this.player = this.add.existing(new Player(this.game, x, y));
 
     this.enemyGroup = this.game.add.group();
 
     this.game.input.activePointer.x = this.game.width/2;
     this.game.input.activePointer.y = this.game.height/2;
+
+
   }
 
   update () {

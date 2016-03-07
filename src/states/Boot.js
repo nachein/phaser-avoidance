@@ -25,7 +25,7 @@ export default class Boot extends Phaser.State {
 
     // Adjust the scaling and page alignment of the game canvas.
     this.scale.pageAlignHorizontally = true;
-    this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
     // If the game canvas loses focus, keep the game loop running.
     this.stage.disableVisibilityChange = true;
@@ -38,6 +38,11 @@ export default class Boot extends Phaser.State {
   preload () {
     // Load the graphical assets required to show the splash screen later.
     this.load.pack('boot', null, assets);
+
+    this.firstRunLandscape = this.game.scale.isGameLandscape;
+    this.game.scale.forceOrientation(false, true);
+    this.game.scale.enterIncorrectOrientation.add(this.handleIncorrect, this);
+    this.game.scale.leaveIncorrectOrientation.add(this.handleCorrect, this);
   }
 
   create () {
@@ -45,4 +50,23 @@ export default class Boot extends Phaser.State {
     this.state.start('Preload');
   }
 
+  handleCorrect () {
+    if(!this.game.device.desktop){
+      if(this.firstRunLandscape){
+        var gameRatio = window.innerWidth/window.innerHeight;
+        this.game.width = Math.ceil(640*gameRatio * window.devicePixelRatio);
+        this.game.height = 640 * window.devicePixelRatio;
+        this.game.renderer.resize(this.game.width,this.game.height);
+        //game.state.start("Play");
+      }
+      // /document.getElementById("turn").style.display="none";
+    }
+  }
+
+  handleIncorrect () {
+    if(!this.game.device.desktop){
+      //document.getElementById("turn").style.display="block";
+      console.log('show error');
+    }
+  }
 }
