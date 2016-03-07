@@ -23,8 +23,7 @@ export default {
   }],
 
   // -- General game assets
-  game: [
-  {
+  game: [{
     key: 'player',
     type: 'image'
   },
@@ -35,18 +34,9 @@ export default {
   {
     key: 'backgrounds/background-10',
     type: 'image'
-  }
-
-  // }, {
-  //   // Example: Add background music.
-  //   key: 'tune',
-  //   type: 'audio',
-  //   urls: [ 'tune.oga', 'tune.m4a' ]
-  // }, {
-  //   // Example: Add an audio sprite with some sound effects.
-  //   key: 'sfx',
-  //   type: 'audiosprite',
-  //   urls: [ 'sfx.m4a' ],
-  //   jsonURL: 'sfx.json'
-  ]
+  },
+  {
+    key: 'backgrounds/background-1',
+    type: 'image'
+  }]
 };
