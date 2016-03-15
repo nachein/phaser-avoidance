@@ -14,7 +14,7 @@
 export default {
   // -- The splash screen assets, displayed during the 'Preload' state.
   boot: [{
-    key: 'splash-screen',
+    key: 'backgrounds/background-1',
     type: 'image'
   },
   {
@@ -33,10 +33,6 @@ export default {
   },
   {
     key: 'backgrounds/background-10',
-    type: 'image'
-  },
-  {
-    key: 'backgrounds/background-1',
     type: 'image'
   }]
 };

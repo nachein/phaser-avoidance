@@ -22,13 +22,18 @@ export default class Preload extends Phaser.State {
     //this.add.plugin(MyPlugin/*, ... initialization parameters ... */);
 
     this.state.start('MainMenu');
+
   }
 
   // --------------------------------------------------------------------------
 
   showSplashScreen () {
-    this.add.image(0, 0, 'splash-screen');
-    this.load.setPreloadSprite(this.add.image(82, 282, 'progress-bar'));
+    var splash = this.add.image(this.game.world.centerX, this.game.world.centerY, 'backgrounds/background-1');
+    splash.anchor.setTo(0.5);
+
+    var loadingBar = this.add.image(this.game.world.centerX, this.game.world.centerY, 'progress-bar');
+    loadingBar.anchor.setTo(0.5);
+    this.load.setPreloadSprite(loadingBar);
   }
 
 }

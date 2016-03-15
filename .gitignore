@@ -6,6 +6,7 @@ dist
 build
 node_modules
 bower_components
+dist-cocoon
 
 !.git*
 !.babelrc

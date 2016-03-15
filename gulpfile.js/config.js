@@ -21,13 +21,19 @@ var STATIC = 'static';
 // Which Phaser build was selected to develop the game.
 var PHASER = 'node_modules/phaser/build/custom/phaser-arcade-physics.js';
 
+var COCOON = 'cocoonjs';
+
+var DIST_COCOON = 'dist-cocoon';
+
 
 module.exports = {
 
   // Build output directories.
   dirs: {
     build: BUILD,
-    dist: DIST
+    dist: DIST,
+    distCocoon: DIST_COCOON,
+    distCocoonWWW: DIST_COCOON + '/www'
   },
 
   // File paths and glob patterns.
@@ -39,7 +45,11 @@ module.exports = {
     scripts: SRC + '/**/*.js',
 
     // The selected Phaser script.
-    phaser: PHASER
+    phaser: PHASER,
+
+    cocoon: COCOON + '/**',
+
+    dist: DIST + '/**'
   },
 
   // The Browserify settings.
