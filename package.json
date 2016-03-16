@@ -3,7 +3,8 @@
   "author": "Juan Ignacio Casal",
   "private": true,
   "dependencies": {
-    "phaser": "^2.4.4"
+    "phaser": "^2.4.4",
+    "phaser-state-transition-plugin": "^0.1.6"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.4.3",

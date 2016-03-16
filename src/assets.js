@@ -34,5 +34,13 @@ export default {
   {
     key: 'backgrounds/background-10',
     type: 'image'
+  },
+  {
+    key: 'levels',
+    type: 'json'
+  },
+  {
+    key: 'pointer',
+    type: 'image'
   }]
 };

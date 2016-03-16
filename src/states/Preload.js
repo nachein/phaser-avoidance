@@ -8,6 +8,7 @@
  */
 
 import assets from '../assets';
+import StateTransition from '../plugins/StateTransition';
 
 export default class Preload extends Phaser.State {
 
@@ -20,8 +21,22 @@ export default class Preload extends Phaser.State {
     // Here is a good place to initialize plugins that depend on any game
     // asset. Example:
     //this.add.plugin(MyPlugin/*, ... initialization parameters ... */);
+    this.game.stateTransition = this.add.plugin(StateTransition);
 
-    this.state.start('MainMenu');
+    this.game.stateTransition.configure({
+      duration: Phaser.Timer.SECOND * 0.8,
+      ease: Phaser.Easing.Exponential.InOut,
+      properties: {
+        alpha: 0,
+        scale: {
+          x: 1.4,
+          y: 1.4
+        }
+      }
+    });
+
+    //this.state.start('MainMenu');
+    this.game.stateTransition.to('MainMenu');
 
   }
 

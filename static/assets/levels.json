@@ -1,0 +1,14 @@
+[
+  {
+    "enemies": [
+      [
+        {
+          "name": "square",
+          "speed": 2,
+          "duration": 10
+        }
+      ]
+    ],
+    "duration": 10
+  }
+]

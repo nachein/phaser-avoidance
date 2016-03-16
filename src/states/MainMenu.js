@@ -30,6 +30,8 @@ export default class MainMenu extends Phaser.State {
 
   preload () {
     this.game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+    this.game.load.json('levels', 'levels.json');
+
   }
 
   create () {
@@ -41,10 +43,15 @@ export default class MainMenu extends Phaser.State {
 
     this.game.input.onDown.addOnce(this.startGame, this);
 
+    var levelsConfig = this.game.cache.getJSON('levels');
+
+
+    localStorage.setItem('levels', JSON.stringify(levelsConfig));
   }
 
   startGame () {
-    this.state.start('Game');
+    //this.state.start('Game');
+    this.game.stateTransition.to('Game');
   }
 
   update () {
