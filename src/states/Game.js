@@ -88,14 +88,28 @@ export default class Game extends Phaser.State {
       this.incoming = true;
       this.tutorial = false;
       this.clearTutorial();
-      this.showIncomingLevel();
+
+      var nice = this.game.make.text(this.game.world.centerX, this.game.world.centerY + this.game.world.centerY / 2, 'Nice!', {
+        font: '26pt Raleway',
+        fill: '#fff',
+        align: 'center',
+        anchor: 0.5
+      });
+      nice.anchor.setTo(0.5);
+      this.game.add.existing(nice);
+
+      this.game.add.tween(nice).to( { alpha: 0 }, 1000, "Linear", true);
 
       var self = this;
+      setTimeout(function() {
+        self.showIncomingLevel();
 
-      setTimeout(function () {
-        self.incoming = false;
-        self.loadLevel();
-      }, 3000);
+        setTimeout(function () {
+          self.incoming = false;
+          self.loadLevel();
+        }, 4000);
+      }, 1500);
+
     }
   }
 
@@ -104,11 +118,28 @@ export default class Game extends Phaser.State {
   }
 
   showIncomingLevel () {
+    if(!this.incomingLevel) {
+      this.incomingLevel = this.game.make.text(this.game.world.centerX, this.game.world.centerY + this.game.world.centerY / 2, 'Level ' + this.currentLevel + 1, {
+        font: '26pt Raleway',
+        fill: '#fff',
+        align: 'center',
+        anchor: 0.5
+      });
+      this.incomingLevel.anchor.setTo(0.5);
+      this.game.add.existing(this.incomingLevel);
+    }
 
+    var show = this.game.add.tween(this.incomingLevel).to( { alpha: 1 }, 2000, "Linear");
+    var hide = this.game.add.tween(this.incomingLevel).to( { alpha: 0 }, 1000, "Linear");
+
+    show.chain(hide);
+
+    show.start();
   }
 
   clearTutorial () {
-    // TODO: remove pointer
+    this.pointer.destroy();
+    this.swipeTutorial.destroy();
   }
 
   loadLevel () {
